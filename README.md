@@ -1,1 +1,1 @@
-Exercises from University realted to OOP programing principals using C#.
+Exercises from University related to OOP programing principals using C#.
