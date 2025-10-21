@@ -25,5 +25,10 @@ namespace ClassDefinition2
             int[] evenNumbers = numbers.Where(el => el % 2 == 0).ToArray();
             Console.WriteLine(string.Join(", ", evenNumbers));
         }
+        public void IsMultiplesToK(int[] numbers,int k) 
+        {
+            int[] evenNumbers = numbers.Where(el => el % k == 0).ToArray();
+            Console.WriteLine(string.Join(",", evenNumbers));
+        }
     }
 }

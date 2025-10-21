@@ -74,6 +74,16 @@
             OddNumber oddNumber = new OddNumber();
             oddNumber.PrintOddNumbers(inputArr);
         }
+        static void Task8()
+        {
+            Console.WriteLine("Task 8.....");
+            string input = Console.ReadLine();
+            int[] inputArr = input.Split(" ").Select(el => int.Parse(el)).ToArray();
+            string k = Console.ReadLine();
+            int kAsNum = int.Parse(k);
+            EvenNumber evenNumber = new EvenNumber();
+            evenNumber.IsMultiplesToK(inputArr,kAsNum);
+        }
         static void Main(string[] args)
         {
             Task1();
@@ -81,6 +91,7 @@
             Task3();
             Task5();
             Task7();
+            Task8();
         }
     }
 }
