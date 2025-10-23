@@ -6,12 +6,20 @@ using System.Threading.Tasks;
 
 namespace LimitterForTemplateClasses
 {
-    public class DetailedList<T>
+    public class DetailedList<T> where T: IComparable<T>
     {
         private List<T> Items;
         public DetailedList()
         {
             Items = new List<T>();
+        }
+        public List<T> GetItmes() 
+        {
+            return Items;
+        }
+        public void SetItems(List<T> newItems) 
+        {
+            Items=newItems;
         }
         public void Add(T item)
         {
@@ -33,9 +41,9 @@ namespace LimitterForTemplateClasses
             Items[index1] = Items[index2];
             Items[index2] = temp;
         }
-        public int CountGreaterThan(T item) 
+        public int CountGreaterThan(T item)
         {
-            int count = Items.Count(el => string.Compare((dynamic)el,(dynamic)item));
+            int count = Items.Count(el => el.CompareTo(item) > 0);
             return count;
         }
         public T Max() 
