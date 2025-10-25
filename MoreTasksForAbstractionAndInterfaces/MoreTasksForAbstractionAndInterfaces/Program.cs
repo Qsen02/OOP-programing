@@ -1,5 +1,6 @@
 ﻿using MoreTasksForAbstractionAndInterfaces.Task1;
 using MoreTasksForAbstractionAndInterfaces.Task2;
+using MoreTasksForAbstractionAndInterfaces.Task3;
 using System.Collections;
 
 namespace MoreTasksForAbstractionAndInterfaces
@@ -82,10 +83,56 @@ namespace MoreTasksForAbstractionAndInterfaces
                 Console.WriteLine("<empty output>");
             }
         }
+        static void Task3() 
+        {
+            Console.WriteLine("Task 3.....");
+            List<IBuyer> buyers = new List<IBuyer>();
+            int buyersCount = int.Parse(Console.ReadLine());
+            for (int i = 0; i < buyersCount; i++) 
+            {
+                string[] commandLine = Console.ReadLine().Split(" ");
+                if (commandLine.Length == 4)
+                {
+                    string name = commandLine[0];
+                    int age = int.Parse(commandLine[1]);
+                    string id = commandLine[2];
+                    string birthdate = commandLine[3];
+                    Citizen citizen = new Citizen(name, age, id, birthdate);
+                    buyers.Add(citizen);
+                }
+                else 
+                {
+                    string name = commandLine[0];
+                    int age= int.Parse(commandLine[1]);
+                    string group= commandLine[2];
+                    Rebel rebel=new Rebel(name, age, group);
+                    buyers.Add(rebel);
+                }
+            }
+            string command = "";
+            while (command != "End") 
+            {
+                command = Console.ReadLine();
+                foreach (var buyer in buyers) 
+                {
+                    if (buyer.Name == command) 
+                    {
+                        buyer.BuyFood();
+                    }
+                }
+            }
+            int food = 0;
+            foreach (var buyer in buyers) 
+            {
+                food += buyer.Food;
+            }
+            Console.WriteLine(food);
+        }
         static void Main(string[] args)
         {
             Task1();
             Task2();
+            Task3();
         }
     }
 }
