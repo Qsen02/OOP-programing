@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreTasksForAbstractionAndInterfaces", "MoreTasksForAbstractionAndInterfaces\MoreTasksForAbstractionAndInterfaces.csproj", "{322468D9-B7B9-43A6-BFB7-DC426EF3647A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{322468D9-B7B9-43A6-BFB7-DC426EF3647A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{322468D9-B7B9-43A6-BFB7-DC426EF3647A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{322468D9-B7B9-43A6-BFB7-DC426EF3647A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{322468D9-B7B9-43A6-BFB7-DC426EF3647A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F76C05A-80DD-4A44-B234-D9DC4E184E32}
+	EndGlobalSection
+EndGlobal
