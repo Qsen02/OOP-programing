@@ -7,9 +7,9 @@ namespace Polymorphism1
         static void Main(string[] args)
         {
             string[] carLine=Console.ReadLine().Split(" ");
-            Vechile car = new Car(double.Parse(carLine[1]), double.Parse(carLine[2]));
+            Car car = new Car(double.Parse(carLine[1]), double.Parse(carLine[2]));
             string[] truckLine = Console.ReadLine().Split(" ");
-            Vechile truck = new Truck(double.Parse(truckLine[1]), double.Parse(truckLine[2]));
+            Truck truck = new Truck(double.Parse(truckLine[1]), double.Parse(truckLine[2]));
             int commandCount=int.Parse(Console.ReadLine());
             List<string> commands=new List<string>();
             for (int i = 0; i < commandCount; i++) 
@@ -45,8 +45,8 @@ namespace Polymorphism1
                     }
                 }
             }
-            Console.WriteLine($"Car: {car.Fuel:F2)}");
-            Console.WriteLine($"Truck: {truck.Fuel:F2)}");
+            Console.WriteLine($"Car: {car.Fuel:F2}");
+            Console.WriteLine($"Truck: {truck.Fuel:F2}");
         }
     }
 }

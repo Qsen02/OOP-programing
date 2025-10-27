@@ -8,8 +8,6 @@ namespace Polymorphism1
 {
     public abstract class Vechile
     {
-        public double Fuel;
-        public double FuelForKm;
         public virtual void Drive(double distance) { }
         public virtual void Refuel(double fuel) { }
     }
