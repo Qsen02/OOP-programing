@@ -1,47 +1,35 @@
-﻿using Iterators.Task1And2;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Iterators.Task3And4
+namespace Iterators.Task5
 {
-    public class ListIterator<T>: IEnumerable<T>
+    public class CustomStack<T>:IEnumerable<T>
     {
         private List<T> Elements;
-        private int CurrentIndex;
-        public ListIterator(List<T> elements) 
+        public CustomStack()
         {
-            Elements = [..elements];
-            CurrentIndex = 0;
+            Elements = new List<T>();
         }
-        public bool Move() 
+        public void Push(T item) 
         {
-            if (HasNext()) 
-            {
-                this.CurrentIndex++;
-                return true;
-            }
-            return false;
+            Elements.Add(item);
         }
-        public bool HasNext() 
-        {
-            return this.CurrentIndex + 1 < Elements.Count;
-        } 
-        public void Print() 
+        public void Pop() 
         {
             if (Elements.Count > 0)
             {
-                Console.WriteLine(Elements[this.CurrentIndex]);
+                Elements.RemoveAt(Elements.Count - 1);
             }
             else 
             {
-                Console.WriteLine("Invalid Operation!");
+                Console.WriteLine("No elements");
             }
         }
-        public IEnumerator<T> GetEnumerator() 
+        public IEnumerator<T> GetEnumerator()
         {
             return new LibraryIterator(Elements);
         }

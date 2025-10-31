@@ -1,5 +1,6 @@
 ﻿using Iterators.Task1And2;
 using Iterators.Task3And4;
+using Iterators.Task5;
 
 namespace Iterators
 {
@@ -45,13 +46,55 @@ namespace Iterators
                     case "HasNext":
                         Console.WriteLine(listElements.HasNext());
                         break;
+                    case "PrintAll":
+                        string result = "";
+                        foreach (string element in listElements) 
+                        {
+                            result += element + " ";
+                        }
+                        Console.WriteLine(result);
+                        break;
                 }
+            }
+        }
+        static void Task5() 
+        {
+            Console.WriteLine("Task 5.....");
+            string command = "";
+            CustomStack<string> stack= new CustomStack<string>();
+            while (command != "END") 
+            {
+                command = Console.ReadLine();
+                string[] commandLine = command.Split(" ");
+                switch (commandLine[0]) 
+                {
+                    case "Push":
+                        List<string> elements = command.Split(" ").ToList();
+                        elements.RemoveAt(0);
+                        foreach (string element in elements) 
+                        {
+                            stack.Push(element);
+                        }
+                    break;
+                    case "Pop":
+                        stack.Pop();
+                    break;
+                }
+            }
+            foreach (string element in stack) 
+            {
+                Console.WriteLine(element);
+            }
+            foreach (string element in stack)
+            {
+                Console.WriteLine(element);
             }
         }
         static void Main(string[] args)
         {
             Task1And2();
             Task3And4();
+            Task5();
         }
     }
 }
