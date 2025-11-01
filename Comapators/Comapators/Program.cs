@@ -1,4 +1,6 @@
 ﻿using Comapators.Task3;
+using Comapators.Task4;
+using Comapators.Task5;
 using Iterators.Task1And2;
 
 namespace Comapators
@@ -59,10 +61,54 @@ namespace Comapators
                 Console.WriteLine($"{matchingPersons} {notMathcingPersons} {persons.Count}");
             }
         }
+        static void Task4() 
+        {
+            Console.WriteLine("Task 4.....");
+            int lines=int.Parse(Console.ReadLine());
+            NameComparer nameComparer = new NameComparer();
+            AgeComparer ageComparer = new AgeComparer();
+            SortedSet<PersonPartial> personsByName = new SortedSet<PersonPartial>(nameComparer);
+            SortedSet<PersonPartial> personsByAge = new SortedSet<PersonPartial>(ageComparer);
+            List<PersonPartial> persons = new List<PersonPartial>();
+            for (int i = 0; i < lines; i++) 
+            {
+                string[] commandLine = Console.ReadLine().Split(" ");
+                PersonPartial person = new PersonPartial(commandLine[0], int.Parse(commandLine[1]));
+                personsByName.Add(person);
+                personsByAge.Add(person);
+            }
+            foreach (PersonPartial person in personsByName) 
+            {
+                Console.WriteLine($"{person.Name} {person.Age}");
+            }
+            foreach (PersonPartial person in personsByAge)
+            {
+                Console.WriteLine($"{person.Name} {person.Age}");
+            }
+        }
+        static void Task5() 
+        {
+            Console.WriteLine("Task 5......");
+            int lines = int.Parse(Console.ReadLine());
+            PersonMatcher personMatcher = new PersonMatcher();
+            SortedSet<PersonPartial> personSet = new SortedSet<PersonPartial>(personMatcher);
+            HashSet<PersonPartial> personHash = new HashSet<PersonPartial>();
+            for (int i = 0; i < lines; i++) 
+            {
+                string[] commandLine = Console.ReadLine().Split(" ");
+                PersonPartial person = new PersonPartial(commandLine[0], int.Parse(commandLine[1]));
+                personSet.Add(person);
+                personHash.Add(person);
+            }
+            Console.WriteLine(personSet.Count);
+            Console.WriteLine(personHash.Count);
+        }
         static void Main(string[] args)
         {
             Task1And2();
             Task3();
+            Task4();
+            Task5();
         }
     }
 }
