@@ -1,6 +1,7 @@
 ﻿using Iterators.Task1And2;
 using Iterators.Task3And4;
 using Iterators.Task5;
+using Iterators.Task6;
 
 namespace Iterators
 {
@@ -90,11 +91,35 @@ namespace Iterators
                 Console.WriteLine(element);
             }
         }
+        static void Task6() 
+        {
+            Console.WriteLine("Task 6.....");
+            List<int> stones = Console.ReadLine().Split(", ").Select(el => int.Parse(el)).ToList();
+            Lake lake = new Lake(stones);
+            List<int> result=new List<int>();
+            List<int> odds=new List<int>();
+            List<int> evens=new List<int>();
+            foreach (int stone in stones)
+            {
+                if (stone % 2 == 0)
+                {
+                    evens.Add(stone);
+                }
+                else {
+                    odds.Add(stone);
+                }
+            }
+            odds.Sort();
+            evens.Reverse();
+            result = [..odds, ..evens];
+            Console.WriteLine(string.Join(", ",result));
+        }
         static void Main(string[] args)
         {
             Task1And2();
             Task3And4();
             Task5();
+            Task6();
         }
     }
 }
