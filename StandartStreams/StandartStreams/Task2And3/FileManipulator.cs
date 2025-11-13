@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,9 +26,10 @@ namespace StandartStreams.Task2
                     int curBytes = 0;
                     for (int i = 0; i < parts; i++)
                     {
-                        string destinationPath = Path.Combine(destinationDirectory,$"part-{i}");
+                        string destinationPath = Path.Combine(destinationDirectory,$"part-{i}.gz");
                         using (FileStream destination = new FileStream(destinationPath, FileMode.Create,FileAccess.Write))
                         {
+                            using var compressor = new GZipStream(destination, CompressionMode.Compress);
                             for (int j = curBytes; j < curBytes + onePartBytes; j++)
                             {
                                 destination.WriteByte(bytes[j]);
@@ -50,8 +52,9 @@ namespace StandartStreams.Task2
                 Directory.CreateDirectory(destinationDirectory);
                 foreach (string file in files)
                 {
-                    using (FileStream source = new FileStream($"Task2/{file}", FileMode.Open))
+                    using (FileStream source = new FileStream($"Task2/{file}.gz", FileMode.Open))
                     {
+                        using var decompressor = new GZipStream (source, CompressionMode.Decompress);
                         List<byte> bytes = new List<byte>();
                         int curByte;
                         while ((curByte = source.ReadByte()) != -1)

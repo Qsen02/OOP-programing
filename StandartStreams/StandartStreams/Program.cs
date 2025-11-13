@@ -33,9 +33,9 @@ namespace StandartStreams
                 Console.WriteLine(ex.Message);
             }
         }
-        static void Task2() 
+        static void Task2And3() 
         {
-            Console.WriteLine("Task 2......");
+            Console.WriteLine("Task 2 and 3......");
             FileManipulator.Slice("Task1/image.jpg", "Task2", 5);
             List<string> files = new List<string> {"part-0", "part-1", "part-2", "part-3","part-4" };
             FileManipulator.Assemble(files, "Task2");
@@ -43,7 +43,7 @@ namespace StandartStreams
         static void Main(string[] args)
         {
             Task1();
-            Task2();
+            Task2And3();
         }
     }
 }
